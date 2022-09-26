@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reelitar</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://kit.fontawesome.com/6a1119dfde.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <div class="container" id="container"> 
+        <img src="images/logo.png" class="logo">
+
+        <div class="content">
+            <p>Website is Under Construction</p>
+            <h1><span>Launching</span> Soon!</h1>
+            <div class="launch-time">
+                <div>
+                    <p></p>
+                </div>
+            </div>
+            <button type="button"> <a href="https://www.youtube.com/watch?v=iik25wqIuFo" target="_blank">Scroll down</a><img src="images/triangle.png" alt=""></button>
+        </div>
+        <img src="images/rocket.png" class="rocket">
+
+    </div>
+    <hr>
+        <div class="container" id="last">
+            <div id="footer">
+                <div class="row">
+                    <div class="col">
+                        <img src="images/reelitar_text.png" class="logo2" alt="">
+                        <p>The website is on its way. For now, subscribe to my Youtube channel and follow me on Instagram for covers and latest updates.</p>
+                    </div>
+                    <div class="col">
+                        <h3>About</h3>
+                        <p>Student - Creator - Guitarist.</p>
+                        <p>Working to inspire the youth to pick up an instrument.</p>
+                        
+                        <p class="email-id">reelitar@gmail.com</p>
+                    </div>
+                    <div class="col">
+                        <h3>Links</h3>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCCdDvfF7rOPQmnI4rlMzfOw/featured" target="_blank">Youtube</a></li>
+                            <li><a href="https://www.instagram.com/reelitar/" target="_blank">Instagram</a></li>
+                            <li><a href="">Contacts</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Connect with us</h3>
+                        <form name="submit-to-google-sheet">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" name="Email" placeholder="Enter your email id" required>
+                            <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+
+                        </form>
+                        <span id="msg"></span>
+                        <div class="social-icons">
+                            
+                            <a href="https://www.youtube.com/channel/UCCdDvfF7rOPQmnI4rlMzfOw/featured" target="_blank"><i class="fa-brands fa-youtube"></i></a>     
+                            <a href="https://www.instagram.com/reelitar/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbz0XangKzT1dbUzgFgFI2qW1tUwp9FerO_LVdeJPFm6VhTlJfGqPmvHUIq_kf58yZ1Q/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Thank you!";
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+</body>
+</html>
